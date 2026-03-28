@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 module dense #(
-    parameter INPUT_SIZE  = 64,     // Input neurons (from flatten)
+    parameter INPUT_SIZE  = 2944,     // Input neurons (from flatten)
     parameter OUTPUT_SIZE = 5,      // Output neurons (num classes)
     parameter WEIGHT_FILE = "dense_weights.mem"
 )(

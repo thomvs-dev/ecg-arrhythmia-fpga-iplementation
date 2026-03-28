@@ -1,9 +1,9 @@
 `timescale 1ns / 1ps
 
 module conv1d #(
-    parameter INPUT_LEN   = 187,    // Length of input signal
-    parameter KERNEL_SIZE = 6,      // Size of conv kernel
-    parameter NUM_FILTERS = 64,     // Number of filters
+    parameter INPUT_LEN   = 186,    // Length of input signal
+    parameter KERNEL_SIZE = 5,      // Size of conv kernel
+    parameter NUM_FILTERS = 32,     // Number of filters
     parameter WEIGHT_FILE = "conv1_weights.mem" // Weight file
 )(
     input  wire                        clk,

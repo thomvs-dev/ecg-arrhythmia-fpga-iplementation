@@ -10,7 +10,7 @@ module bram_reader (
 
     // ─── Parameters ───────────────────────────────────────────────────
     // 5 ECG samples × 187 values each = 935 total values in BRAM
-    parameter TOTAL_SAMPLES = 935;
+    parameter TOTAL_SAMPLES = 930;
     
     // Controls how fast samples are fed to CNN
     // 100MHz clock / 1000 = one sample every 10 microseconds
