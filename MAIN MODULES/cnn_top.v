@@ -10,12 +10,12 @@ module cnn_top (
 );
 
     // ─── Parameters ───────────────────────────────────────────────────
-    parameter SIGNAL_LEN  = 187;    // Samples per ECG beat
-    parameter CONV1_FILTERS = 64;   // Filters in conv layer 1
-    parameter CONV1_KERNEL  = 6;    // Kernel size of conv layer 1
+    parameter SIGNAL_LEN  = 186;    // Samples per ECG beat
+    parameter CONV1_FILTERS = 32;   // Filters in conv layer 1
+    parameter CONV1_KERNEL  = 5;    // Kernel size of conv layer 1
     parameter CONV2_FILTERS = 64;   // Filters in conv layer 2
     parameter CONV2_KERNEL  = 3;    // Kernel size of conv layer 2
-    parameter CONV3_FILTERS = 64;   // Filters in conv layer 3
+    parameter CONV3_FILTERS = 128;   // Filters in conv layer 3
     parameter CONV3_KERNEL  = 3;    // Kernel size of conv layer 3
     parameter NUM_CLASSES   = 5;    // Output classes (0 to 4)
 
@@ -110,7 +110,7 @@ module cnn_top (
 
     maxpool #(
         .NUM_FILTERS  (CONV2_FILTERS),
-        .POOL_SIZE    (2),
+        .POOL_SIZE    (3),
         .STRIDE       (2)
     ) u_pool2 (
         .clk          (clk),
@@ -155,7 +155,7 @@ module cnn_top (
 
     // ─── Dense Layers ─────────────────────────────────────────────────
     dense #(
-        .INPUT_SIZE   (CONV3_FILTERS),
+        .INPUT_SIZE   (2944),
         .OUTPUT_SIZE  (NUM_CLASSES),
         .WEIGHT_FILE  ("dense_weights.mem")
     ) u_dense (
