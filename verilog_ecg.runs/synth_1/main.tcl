@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.runs/synth_1/main.tcl"
+  variable script "C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.runs/synth_1/main.tcl"
   variable category "vivado_synth"
 }
 
@@ -57,30 +57,31 @@ if {$::dispatch::connected} {
 
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param general.usePosixSpawnForFork 1
-set_param chipscope.maxJobs 5
+set_param chipscope.maxJobs 2
+set_param xicom.use_bs_reader 1
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.cache/wt [current_project]
-set_property parent.project_path C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.xpr [current_project]
+set_property webtalk.parent_dir C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.cache/wt [current_project]
+set_property parent.project_path C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part xilinx.com:zc702:part0:1.4 [current_project]
-set_property ip_output_repo c:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.cache/ip [current_project]
+set_property ip_output_repo c:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 read_verilog -library xil_defaultlib {
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/bram_reader.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/cnn_top.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/conv1d.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/dense.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/maxpool.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/uart_display.v
-  C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/sources_1/new/main.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/bram_reader.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/cnn_top.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/conv1d.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/dense.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/maxpool.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/uart_display.v
+  C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/sources_1/new/main.v
 }
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -91,12 +92,12 @@ OPTRACE "Adding files" END { }
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
-read_xdc C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/constrs_1/new/zedboard.xdc
-set_property used_in_implementation false [get_files C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/constrs_1/new/zedboard.xdc]
+read_xdc C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/constrs_1/new/zedboard.xdc
+set_property used_in_implementation false [get_files C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/constrs_1/new/zedboard.xdc]
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental C:/Users/ASUS/Documents/verilog_ecg/verilog_ecg.srcs/utils_1/imports/synth_1/main.dcp
+read_checkpoint -auto_incremental -incremental C:/ACADEMICshi__/ecg-arrhythmia-fpga-iplementation/verilog_ecg.srcs/utils_1/imports/synth_1/main.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

@@ -1,8 +1,8 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Sun Mar 29 10:50:04 2026
-| Host         : DESKTOP-3897D3I running 64-bit major release  (build 9200)
+| Date         : Sun Mar 29 15:13:14 2026
+| Host         : DESKTOP-JOR43I8 running 64-bit major release  (build 9200)
 | Command      : report_drc -file main_drc_routed.rpt -pb main_drc_routed.pb -rpx main_drc_routed.rpx
 | Design       : main
 | Device       : xc7z020clg484-1
@@ -74,12 +74,12 @@ Related violations: <none>
 
 REQP-1840#1 Warning
 RAMB18 async control check  
-The RAMB18E1 u_cnn_top/u_conv2/weight_idx_reg_rep has an input control pin u_cnn_top/u_conv2/weight_idx_reg_rep/ENARDEN (net: u_cnn_top/u_conv2/weight_idx_reg_rep_i_1__1_n_0) which is driven by a register (u_cnn_top/u_pool1/done_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 u_cnn_top/u_conv2/weight_idx_reg_rep has an input control pin u_cnn_top/u_conv2/weight_idx_reg_rep/ENARDEN (net: u_cnn_top/u_conv2/weight_idx_reg_rep_i_1_n_0) which is driven by a register (u_cnn_top/u_pool1/done_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 REQP-1840#2 Warning
 RAMB18 async control check  
-The RAMB18E1 u_cnn_top/u_conv3/weight_idx_reg_rep has an input control pin u_cnn_top/u_conv3/weight_idx_reg_rep/ENARDEN (net: u_cnn_top/u_conv3/weight_idx_reg_rep_i_1_n_0) which is driven by a register (u_cnn_top/u_pool2/done_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
+The RAMB18E1 u_cnn_top/u_conv3/weight_idx_reg_rep has an input control pin u_cnn_top/u_conv3/weight_idx_reg_rep/ENARDEN (net: u_cnn_top/u_conv3/weight_idx_reg_rep_i_1__1_n_0) which is driven by a register (u_cnn_top/u_pool2/done_reg) that has an active asychronous set or reset. This may cause corruption of the memory contents and/or read values when the set/reset is asserted and is not analyzed by the default static timing analysis. It is suggested to eliminate the use of a set/reset to registers driving this RAMB pin or else use a synchronous reset in which the assertion of the reset is timed by default.
 Related violations: <none>
 
 ZPS7-1#1 Warning
