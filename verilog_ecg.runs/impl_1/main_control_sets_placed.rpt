@@ -1,0 +1,753 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Sun Mar 29 15:08:56 2026
+| Host         : DESKTOP-JOR43I8 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file main_control_sets_placed.rpt
+| Design       : main
+| Device       : xc7z020
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |   675 |
+|    Minimum number of control sets                        |   675 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   452 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |   675 |
+| >= 0 to < 4        |     1 |
+| >= 4 to < 6        |     6 |
+| >= 6 to < 8        |     4 |
+| >= 8 to < 10       |   194 |
+| >= 10 to < 12      |     2 |
+| >= 12 to < 14      |     6 |
+| >= 14 to < 16      |   320 |
+| >= 16              |   142 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             137 |           64 |
+| No           | No                    | Yes                    |               3 |            3 |
+| No           | Yes                   | No                     |              78 |           35 |
+| Yes          | No                    | No                     |            3396 |         1068 |
+| Yes          | No                    | Yes                    |             138 |           48 |
+| Yes          | Yes                   | No                     |            5908 |         1988 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++----------------+--------------------------------------------------+-------------------------------------------------+------------------+----------------+--------------+
+|  Clock Signal  |                   Enable Signal                  |                 Set/Reset Signal                | Slice Load Count | Bel Load Count | Bels / Slice |
++----------------+--------------------------------------------------+-------------------------------------------------+------------------+----------------+--------------+
+|  clk_IBUF_BUFG | u_uart_display/uart_tx_i_1_n_0                   | rst_btn_IBUF                                    |                1 |              1 |         1.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/FSM_onehot_state[3]_i_1_n_0    | rst_btn_IBUF                                    |                4 |              4 |         1.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/FSM_onehot_state[3]_i_1__0_n_0 | rst_btn_IBUF                                    |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/E[0]                                   |                                                 |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/FSM_onehot_state[3]_i_1__1_n_0 | rst_btn_IBUF                                    |                2 |              4 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/result_reg[1]_5                        | u_cnn_top/result_reg[1]_16                      |                1 |              4 |         4.00 |
+|  clk_IBUF_BUFG | u_uart_display/char_idx[4]_i_1_n_0               | rst_btn_IBUF                                    |                1 |              5 |         5.00 |
+|  clk_IBUF_BUFG | u_uart_display/msg_len[3]_i_1_n_0                |                                                 |                1 |              6 |         6.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/input_idx                     | rst_btn_IBUF                                    |                2 |              6 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/result_count0                          | rst_btn_IBUF                                    |                1 |              6 |         6.00 |
+|  clk_IBUF_BUFG | u_uart_display/tx_byte[6]_i_1_n_0                |                                                 |                6 |              7 |         1.17 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[12][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[88][7]_i_1_n_0              |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[176][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/weight_idx[7]_i_1__4_n_0       | rst_btn_IBUF                                    |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[174][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[173][7]_i_1_n_0             |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[137][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[118][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[10][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[0][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[103][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[117][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[115][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[111][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[116][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[5][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[114][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[113][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[8][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[6][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[90][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/pool_idx[7]_i_1_n_0            | rst_btn_IBUF                                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[60][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[119][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[94][7]_i_1_n_0              |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[97][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[68][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[163][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[159][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[72][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[122][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[151][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[172][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[171][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[136][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[131][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/state__0[1]                   | rst_btn_IBUF                                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[76][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[93][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[45][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[141][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[127][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[170][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[16][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[169][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[125][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[168][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[165][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[150][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[162][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[14][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[143][7]_i_1_n_0             |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[134][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[167][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[166][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[132][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[164][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[144][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[145][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[130][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[129][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[123][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[161][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[15][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[148][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[142][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[157][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[156][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[153][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[158][7]_i_1_n_0             |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[155][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[154][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[152][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[140][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[105][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[124][7]_i_1_n_0             |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[149][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[128][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[147][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[139][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[146][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[135][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[133][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[112][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[101][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[107][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[109][7]_i_1_n_0             |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[108][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[106][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[104][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[102][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[100][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[121][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[120][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/weight_idx[7]_i_1__0_n_0       | rst_btn_IBUF                                    |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[138][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[160][7]_i_1_n_0             |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[126][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[13][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[11][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/sample_count[7]_i_1_n_0                | rst_btn_IBUF                                    |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[110][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[175][7]_i_1_n_0             |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[40][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[3][7]_i_1_n_0               |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[183][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[31][7]_i_1_n_0              |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[39][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[47][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[180][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[37][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[179][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[43][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[25][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[35][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[178][7]_i_1_n_0             |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[24][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[21][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[38][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[36][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[52][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[17][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[44][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[53][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[181][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[23][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[54][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[2][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[55][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[49][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[4][7]_i_1_n_0               |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[29][7]_i_1_n_0              |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[34][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[185][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[33][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[41][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[42][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[46][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[184][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[177][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[1][7]_i_1_n_0               |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[22][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[27][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[18][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[28][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[32][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[48][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[26][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[50][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[19][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[51][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[20][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[182][7]_i_1_n_0             |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[30][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[95][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[89][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[56][7]_i_1_n_0              |                                                 |                1 |              8 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[91][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[87][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[69][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[78][7]_i_1_n_0              |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[83][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[74][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[86][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[98][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[57][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[58][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[61][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[62][7]_i_1_n_0              |                                                 |                7 |              8 |         1.14 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[65][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[96][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[99][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[9][7]_i_1_n_0               |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[92][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[85][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[80][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[77][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[59][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[64][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[75][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[70][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[67][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[71][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[7][7]_i_1_n_0               |                                                 |                5 |              8 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[81][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[82][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[66][7]_i_1_n_0              |                                                 |                4 |              8 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[84][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[73][7]_i_1_n_0              |                                                 |                2 |              8 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[63][7]_i_1_n_0              |                                                 |                3 |              8 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/signal_buf[79][7]_i_1_n_0              |                                                 |                6 |              8 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/E[0]                           | rst_btn_IBUF                                    |                2 |              9 |         4.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/weight_idx[8]_i_1__0_n_0       | rst_btn_IBUF                                    |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/pool_idx[7]_i_1__0_n_0         | rst_btn_IBUF                                    |                3 |              9 |         3.00 |
+|  clk_IBUF_BUFG | u_bram_reader/sending                            | u_cnn_top/SR[0]                                 |                3 |             10 |         3.33 |
+|  clk_IBUF_BUFG | u_uart_display/clk_count[9]_i_1_n_0              | rst_btn_IBUF                                    |                5 |             10 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/blink_timer_reg[11]_0                  | rst_btn_IBUF                                    |                4 |             12 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_idx[7]_i_1_n_0             | rst_btn_IBUF                                    |                6 |             12 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/input_idx                     | rst_btn_IBUF                                    |                4 |             12 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/state__0[1]                   | rst_btn_IBUF                                    |                4 |             12 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/blink_timer_reg[11]                    | blink_timer[23]_i_1_n_0                         |                4 |             13 |         3.25 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_idx[7]_i_1__0_n_0          | rst_btn_IBUF                                    |                4 |             13 |         3.25 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_idx[7]_i_1__1_n_0          | rst_btn_IBUF                                    |                5 |             14 |         2.80 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/input_idx                     | rst_btn_IBUF                                    |                5 |             14 |         2.80 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[100][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[100][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[104][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[104][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[117][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[117][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[11][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[11][14]_i_1__1_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[115][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[115][14]_i_1_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[114][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[114][14]_i_1_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[121][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[121][14]_i_1_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[119][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[119][14]_i_1_n_0   |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[120][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[120][14]_i_1_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[123][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[123][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[110][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[110][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[116][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[116][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[10][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[10][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[113][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[113][14]_i_1_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[122][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[122][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[112][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[112][14]_i_1_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[111][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[111][14]_i_1_n_0   |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[118][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[118][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[124][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[124][14]_i_1_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[14][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[14][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[127][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[127][14]_i_1_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[12][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[12][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[16][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[16][14]_i_1__1_n_0 |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[13][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[13][14]_i_1__1_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[126][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[126][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[17][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[17][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[18][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[18][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[19][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[19][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[15][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[15][14]_i_1__1_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[1][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[1][14]_i_1__1_n_0  |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[125][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[125][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[27][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[27][14]_i_1__1_n_0 |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[2][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[2][14]_i_1__1_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[25][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[25][14]_i_1__1_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[30][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[30][14]_i_1__1_n_0 |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[22][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[22][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[20][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[20][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[21][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[21][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[24][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[24][14]_i_1__1_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[29][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[29][14]_i_1__1_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[28][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[28][14]_i_1__1_n_0 |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[26][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[26][14]_i_1__1_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[23][14]_i_2__1_n_0  | u_cnn_top/u_conv3/result_buf[23][14]_i_1__1_n_0 |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[41][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[41][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[43][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[43][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[38][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[38][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[40][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[40][14]_i_1__0_n_0 |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[42][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[42][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[33][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[33][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[3][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[3][14]_i_1__1_n_0  |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[32][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[32][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[37][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[37][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[36][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[36][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[34][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[34][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[39][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[39][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[31][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[31][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[53][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[53][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[49][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[49][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[48][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[48][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[57][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[57][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[4][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[4][14]_i_1__1_n_0  |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[50][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[50][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[46][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[46][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[55][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[55][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[44][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[44][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[54][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[54][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[56][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[56][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[52][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[52][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[47][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[47][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[51][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[51][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[45][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[45][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[58][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[58][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[60][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[60][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[62][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[62][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[68][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[68][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[69][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[69][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[6][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[6][14]_i_1__1_n_0  |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[63][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[63][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[59][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[59][14]_i_1__0_n_0 |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[66][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[66][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[70][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[70][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[61][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[61][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[71][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[71][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[65][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[65][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[5][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[5][14]_i_1__1_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[64][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[64][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[67][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[67][14]_i_1_n_0    |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[79][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[79][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[73][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[73][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[75][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[75][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[76][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[76][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[80][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[80][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[83][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[83][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[7][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[7][14]_i_1__1_n_0  |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[74][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[74][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[84][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[84][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[85][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[85][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[72][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[72][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[82][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[82][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[78][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[78][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[77][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[77][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[81][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[81][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[95][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[95][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[94][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[94][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[98][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[98][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[89][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[89][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[8][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[8][14]_i_1__1_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[93][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[93][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[96][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[96][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[88][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[88][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[99][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[99][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[92][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[92][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[9][14]_i_2__1_n_0   | u_cnn_top/u_conv3/result_buf[9][14]_i_1__1_n_0  |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[86][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[86][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[91][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[91][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[87][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[87][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[90][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[90][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[97][14]_i_2_n_0     | u_cnn_top/u_conv3/result_buf[97][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/out_buf[2][14]_i_2__1_n_0     | u_cnn_top/u_dense3/out_buf[2][14]_i_1__0_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/out_buf[1][14]_i_2__0_n_0     | u_cnn_top/u_dense3/out_buf[1][14]_i_1__0_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/out_buf[4][14]_i_2__1_n_0     | u_cnn_top/u_dense3/out_buf[4][14]_i_1__0_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/out_buf[3][14]_i_2__1_n_0     | u_cnn_top/u_dense3/out_buf[3][14]_i_1__0_n_0    |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[35][14]_i_2__0_n_0  | u_cnn_top/u_conv3/result_buf[35][14]_i_1__0_n_0 |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[18][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[18][14]_i_1_n_0      |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[14][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[14][14]_i_1_n_0      |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[10][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[10][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[11][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[11][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[12][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[12][14]_i_1_n_0      |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[15][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[15][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[16][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[16][14]_i_1_n_0      |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[19][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[19][14]_i_1_n_0      |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[17][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[17][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[13][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[13][14]_i_1_n_0      |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[22][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[22][14]_i_1_n_0      |               10 |             15 |         1.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[28][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[28][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[26][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[26][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[23][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[23][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[29][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[29][14]_i_1_n_0      |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[2][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[2][14]_i_1_n_0       |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[24][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[24][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[27][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[27][14]_i_1_n_0      |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[25][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[25][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[20][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[20][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[21][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[21][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[33][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[33][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[32][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[32][14]_i_1_n_0      |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[3][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[3][14]_i_1_n_0       |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[35][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[35][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[37][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[37][14]_i_1_n_0      |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[30][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[30][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[34][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[34][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[36][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[36][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[39][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[39][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[38][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[38][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[31][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[31][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[40][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[40][14]_i_1_n_0      |               12 |             15 |         1.25 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[46][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[46][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[45][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[45][14]_i_1_n_0      |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[44][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[44][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[41][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[41][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[42][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[42][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[47][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[47][14]_i_1_n_0      |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[48][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[48][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[4][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[4][14]_i_1_n_0       |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[43][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[43][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[49][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[49][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[57][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[57][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[59][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[59][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[55][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[55][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[56][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[56][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[60][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[60][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[52][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[52][14]_i_1_n_0      |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[53][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[53][14]_i_1_n_0      |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[5][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[5][14]_i_1_n_0       |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[61][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[61][14]_i_1_n_0      |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[58][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[58][14]_i_1_n_0      |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[51][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[51][14]_i_1_n_0      |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[50][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[50][14]_i_1_n_0      |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[54][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[54][14]_i_1_n_0      |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[62][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[62][14]_i_1_n_0      |               12 |             15 |         1.25 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[9][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[9][14]_i_1_n_0       |                9 |             15 |         1.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[6][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[6][14]_i_1_n_0       |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[63][14]_i_2_n_0       | u_cnn_top/u_dense1/out_buf[63][14]_i_1_n_0      |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[7][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[7][14]_i_1_n_0       |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[8][14]_i_2_n_0        | u_cnn_top/u_dense1/out_buf[8][14]_i_1_n_0       |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[16][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[16][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[13][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[13][14]_i_1__0_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[10][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[10][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[11][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[11][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[12][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[12][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[14][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[14][14]_i_1__0_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[17][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[17][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[15][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[15][14]_i_1__0_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[24][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[24][14]_i_1__0_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[20][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[20][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[21][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[21][14]_i_1__0_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[27][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[27][14]_i_1__0_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[19][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[19][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[28][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[28][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[18][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[18][14]_i_1__0_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[23][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[23][14]_i_1__0_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[25][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[25][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[26][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[26][14]_i_1__0_n_0   |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[29][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[29][14]_i_1__0_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[1][14]_i_2_n_0        | u_cnn_top/u_dense2/out_buf[1][14]_i_1__1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[22][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[22][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[7][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[7][14]_i_1__0_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[5][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[5][14]_i_1__0_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[3][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[3][14]_i_1__1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[4][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[4][14]_i_1__1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[8][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[8][14]_i_1__0_n_0    |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[31][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[31][14]_i_1__0_n_0   |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[9][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[9][14]_i_1__0_n_0    |                8 |             15 |         1.88 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[30][14]_i_2__0_n_0    | u_cnn_top/u_dense2/out_buf[30][14]_i_1__0_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[2][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[2][14]_i_1__1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[6][14]_i_2__0_n_0     | u_cnn_top/u_dense2/out_buf[6][14]_i_1__0_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[4][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[4][14]_i_1__0_n_0  |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[12][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[12][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[13][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[13][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[14][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[14][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[15][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[15][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[10][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[10][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[11][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[11][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[18][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[18][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[23][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[23][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[1][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[1][14]_i_1__0_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[24][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[24][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[16][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[16][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[19][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[19][14]_i_1__1_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[21][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[21][14]_i_1__1_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[20][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[20][14]_i_1__1_n_0 |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[22][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[22][14]_i_1__1_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[25][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[25][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[17][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[17][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[6][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[6][14]_i_1_n_0     |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[30][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[30][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[3][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[3][14]_i_1_n_0     |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[27][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[27][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[4][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[4][14]_i_1_n_0     |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[5][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[5][14]_i_1_n_0     |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[29][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[29][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[7][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[7][14]_i_1_n_0     |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[8][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[8][14]_i_1_n_0     |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[28][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[28][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[2][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[2][14]_i_1_n_0     |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[26][14]_i_2_n_0     | u_cnn_top/u_conv1/result_buf[26][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[31][14]_i_2__1_n_0  | u_cnn_top/u_conv1/result_buf[31][14]_i_1__1_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[9][14]_i_2_n_0      | u_cnn_top/u_conv1/result_buf[9][14]_i_1_n_0     |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[13][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[13][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[18][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[18][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[19][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[19][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[14][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[14][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[1][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[1][14]_i_1_n_0     |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[16][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[16][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[12][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[12][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[10][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[10][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[15][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[15][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[17][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[17][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[11][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[11][14]_i_1__0_n_0 |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[21][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[21][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[28][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[28][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[2][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[2][14]_i_1__0_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[29][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[29][14]_i_1__0_n_0 |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[23][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[23][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[27][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[27][14]_i_1__0_n_0 |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[22][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[22][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[26][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[26][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[24][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[24][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[25][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[25][14]_i_1__0_n_0 |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[20][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[20][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[37][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[37][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[38][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[38][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[30][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[30][14]_i_1__0_n_0 |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[35][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[35][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[42][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[42][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[43][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[43][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[44][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[44][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[36][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[36][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[32][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[32][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[3][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[3][14]_i_1__0_n_0  |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[41][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[41][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[34][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[34][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[33][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[33][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[40][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[40][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[39][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[39][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[31][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[31][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[51][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[51][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[50][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[50][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[52][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[52][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[47][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[47][14]_i_1_n_0    |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[54][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[54][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[55][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[55][14]_i_1_n_0    |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[49][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[49][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[53][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[53][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[56][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[56][14]_i_1_n_0    |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[46][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[46][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[45][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[45][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[58][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[58][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[57][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[57][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[48][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[48][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[62][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[62][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[9][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[9][14]_i_1__0_n_0  |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[59][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[59][14]_i_1_n_0    |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[8][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[8][14]_i_1__0_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[60][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[60][14]_i_1_n_0    |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[63][14]_i_2__0_n_0  | u_cnn_top/u_conv2/result_buf[63][14]_i_1__0_n_0 |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[5][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[5][14]_i_1__0_n_0  |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[61][14]_i_2_n_0     | u_cnn_top/u_conv2/result_buf[61][14]_i_1_n_0    |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[6][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[6][14]_i_1__0_n_0  |                5 |             15 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[7][14]_i_2__0_n_0   | u_cnn_top/u_conv2/result_buf[7][14]_i_1__0_n_0  |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[105][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[105][14]_i_1_n_0   |                2 |             15 |         7.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[102][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[102][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[107][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[107][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[103][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[103][14]_i_1_n_0   |                7 |             15 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[101][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[101][14]_i_1_n_0   |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[106][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[106][14]_i_1_n_0   |                3 |             15 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[109][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[109][14]_i_1_n_0   |                4 |             15 |         3.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[108][14]_i_2_n_0    | u_cnn_top/u_conv3/result_buf[108][14]_i_1_n_0   |                6 |             15 |         2.50 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[31][15]_i_1__1_n_0     |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[22][15]_i_1__2_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[17][15]_i_1__2_n_0     |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[48][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[30][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[45][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[24][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[21][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[50][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[33][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[4][15]_i_1__4_n_0      |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[19][15]_i_1__2_n_0     |                                                 |               11 |             16 |         1.45 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[49][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[25][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[29][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[47][15]_i_1__0_n_0     |                                                 |               12 |             16 |         1.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/current_max[15]_i_1__1_n_0     | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[10][15]_i_1__3_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[12][15]_i_1__3_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[0][15]_i_1__4_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[11][15]_i_1__3_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/out_buf[0][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/neuron_idx[15]_i_1__1_n_0     | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[36][15]_i_1__0_n_0     |                                                 |                2 |             16 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/result_buf[0]                  |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/result_buf[0]                  |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[13][15]_i_1__3_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/pos_idx[15]_i_1__1_n_0         | rst_btn_IBUF                                    |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[39][15]_i_1__0_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[37][15]_i_1__0_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/result_buf[0]                  |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/pos_idx[15]_i_1_n_0            | rst_btn_IBUF                                    |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/filter_idx[15]_i_1_n_0         | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[28][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/pos_idx[15]_i_1__0_n_0         | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/filter_idx[15]_i_1__1_n_0      | rst_btn_IBUF                                    |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[35][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[15][15]_i_1__2_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[32][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[25][15]_i_1__1_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[7][15]_i_1__2_n_0      |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[20][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[2][15]_i_1__4_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[6][15]_i_1__2_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/neuron_idx[15]_i_1_n_0        | rst_btn_IBUF                                    |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[0][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/out_buf[1][15]_i_1__2_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[2][15]_i_1__3_n_0      |                                                 |                2 |             16 |         8.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[26][15]_i_1__1_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[8][15]_i_1__2_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[29][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[23][15]_i_1__1_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[20][15]_i_1__2_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[5][15]_i_1__2_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[13][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[21][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/neuron_idx[15]_i_1__0_n_0     | rst_btn_IBUF                                    |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[27][15]_i_1__1_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[24][15]_i_1__1_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[28][15]_i_1__1_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[30][15]_i_1__1_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[22][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[4][15]_i_1__3_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/out_buf[0][15]_i_1_n_0        |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[9][15]_i_1__2_n_0      |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[3][15]_i_1__4_n_0      |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[3][15]_i_1__3_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[17][15]_i_1__1_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[16][15]_i_1__1_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[12][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[14][15]_i_1__2_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[3][15]_i_1__1_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[7][15]_i_1__0_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[1][15]_i_1__0_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[13][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[10][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[11][15]_i_1__0_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[12][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[8][15]_i_1__0_n_0      |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[11][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[9][15]_i_1__0_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[6][15]_i_1__0_n_0      |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[10][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/current_max[15]_i_1_n_0        | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[0][15]_i_1__1_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[14][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[2][15]_i_1__1_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[4][15]_i_1__1_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool1/out_buf[5][15]_i_1__0_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[0][15]_i_1__3_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[1][15]_i_1__3_n_0      |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[15][15]_i_1__1_n_0     |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[19][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/out_buf[18][15]_i_1__1_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool2/current_max[15]_i_1__0_n_0     | rst_btn_IBUF                                    |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[62][15]_i_1__0_n_0     |                                                 |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[8][15]_i_1__3_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[51][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[6][15]_i_1__3_n_0      |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[5][15]_i_1__3_n_0      |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[59][15]_i_1__0_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[56][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[60][15]_i_1__0_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[53][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[9][15]_i_1__3_n_0      |                                                 |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[58][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[7][15]_i_1__3_n_0      |                                                 |               10 |             16 |         1.60 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[57][15]_i_1__0_n_0     |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[63][15]_i_1__0_n_0     |                                                 |               11 |             16 |         1.45 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[61][15]_i_1__0_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[52][15]_i_1__0_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[55][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[54][15]_i_1__0_n_0     |                                                 |                9 |             16 |         1.78 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[46][15]_i_1__0_n_0     |                                                 |                8 |             16 |         2.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[16][15]_i_1__2_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[14][15]_i_1__3_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[44][15]_i_1__0_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[43][15]_i_1__0_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[41][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[23][15]_i_1__2_n_0     |                                                 |                7 |             16 |         2.29 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[34][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[1][15]_i_1__4_n_0      |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[27][15]_i_1__2_n_0     |                                                 |                6 |             16 |         2.67 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[38][15]_i_1__0_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[18][15]_i_1__2_n_0     |                                                 |                5 |             16 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[42][15]_i_1__0_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[40][15]_i_1__0_n_0     |                                                 |                3 |             16 |         5.33 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/out_buf[26][15]_i_1__2_n_0     |                                                 |                4 |             16 |         4.00 |
+|  clk_IBUF_BUFG | u_bram_reader/addr[0]                            | rst_btn_IBUF                                    |                6 |             18 |         3.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/filter_idx[15]_i_1__0_n_0      | rst_btn_IBUF                                    |                7 |             19 |         2.71 |
+|  clk_IBUF_BUFG | u_cnn_top/result_reg[1]_5                        |                                                 |                4 |             19 |         4.75 |
+|  clk_IBUF_BUFG | debounce_counter[19]_i_1_n_0                     | rst_btn_IBUF                                    |                4 |             20 |         5.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_pool3/pool_idx[7]_i_1__1_n_0         | rst_btn_IBUF                                    |                8 |             22 |         2.75 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense3/accumulator                   | rst_btn_IBUF                                    |                8 |             32 |         4.00 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/accumulator                   | rst_btn_IBUF                                    |               10 |             32 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense2/accum_idx                     | rst_btn_IBUF                                    |               10 |             32 |         3.20 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv3/accumulator[23]_i_1__1_n_0     | rst_btn_IBUF                                    |               11 |             40 |         3.64 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv2/accumulator[23]_i_1__0_n_0     | rst_btn_IBUF                                    |               13 |             40 |         3.08 |
+|  clk_IBUF_BUFG | u_cnn_top/u_conv1/accum_idx[15]_i_1__0_n_0       | rst_btn_IBUF                                    |                8 |             40 |         5.00 |
+|  clk_IBUF_BUFG |                                                  | rst_btn_IBUF                                    |               38 |             81 |         2.13 |
+|  clk_IBUF_BUFG |                                                  |                                                 |               64 |            137 |         2.14 |
+|  clk_IBUF_BUFG | u_cnn_top/u_dense1/state__1[1]                   | rst_btn_IBUF                                    |              464 |            582 |         1.25 |
++----------------+--------------------------------------------------+-------------------------------------------------+------------------+----------------+--------------+
+
+
