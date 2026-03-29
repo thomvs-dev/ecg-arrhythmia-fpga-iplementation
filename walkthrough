@@ -1,0 +1,36 @@
+# BITS Pilani FPGA Hackathon — ZedBoard CNN Implementation Walkthrough
+
+This document outlines the critical Verilog refactoring and hardware implementation strategies we executed to successfully deploy the 1D Arrhythmia CNN completely onto the FPGA fabric (PL) without needing the ARM Cortex-A9 (Vitis).
+
+## 1. Port Interface Flattening (Synthesis Error Fix)
+**The Problem:** The original code used 2D Unpacked Arrays (e.g., `input signed [7:0] signal_in [0:185]`) directly on module ports. Vivado’s Verilog-2001 synthesizer throws a strict `[Synth 8-9210]` error because unpacked structures cannot be passed across pure Verilog module boundaries.
+**The Solution:** We refactored all interface boundaries in `cnn_top`, `conv1d`, `maxpool`, and `dense` to use **Packed 1D Bit-Vectors** (`data_in_flat`). 
+**The Reasoning:** Inside the modules, we used highly efficient `generate` loop blocks to seamlessly pack and unpack the bit-vectors into internal 2D arrays, allowing the tool to cleanly pass signals while retaining the human-readable `[index]` array accessibility inside the logic.
+
+## 2. Dynamic Component Parameterization
+**The Problem:** The `conv1d.v` module originally hardcoded the `conv1_weights.mem` directly inside the `$readmemh` system task. This prevented code reuse for `conv2` and `conv3`.
+**The Solution:** We abstracted the memory files into `parameter WEIGHT_FILE` and `parameter BIAS_FILE` strings.
+**The Reasoning:** This allowed `cnn_top.v` to instantiate the exact same `conv1d.v` block multiple times while flexibly injecting `conv1_weights.mem`, `conv2_weights.mem`, and `conv3_weights.mem` during synthesis, creating a clean topological cascade.
+
+## 3. Synchronous Pipelining vs. Combinational BRAM Read
+**The Problem:** The original architecture used asynchronous combinational indexing to read weights: `wire current_weight = weights[index];`. Vivado **cannot** synthesize combinational reads into Block RAM (BRAM). Instead, it synthesized the 188,416 weights into dense Distributed RAM (LUT multiplexers), resulting in a massive `-11ns` negative timing violation (WNS) that made the bitstream fail.
+**The Solution:** We transitioned the entire memory access protocol to a synchronous pipeline.
+```verilog
+always @(posedge clk) begin
+    weight_reg <= weights[weight_idx];
+end
+```
+**The Reasoning:** Hardware BRAM primitives naturally require a minimum 1-clock-cycle delay. By manually buffering data into pipeline registers (`weight_reg`), Vivado instantly recognized the access pattern and automatically inferred dedicated, hardened Block RAM. This resolved the routing nightmare and easily passed the 100MHz (10ns) timing constraint securely.
+
+## 4. DSP48E1 Synchronous Reset Optimization
+**The Problem:** Vivado flagged 144 Methodology Warnings (`DPIR-#`). The DSP48 hardware slices on the Zynq-7000 strictly contain synchronous registers, but our MAC FSM used an asynchronous reset (`always @(posedge clk or negedge rst_n)`). Vivado had to pull the accumulators out of the DSP48 slices and map them onto generic Slice Flip-Flops.
+**The Solution:** We removed `negedge rst_n` from the sensitivity list, converting it to a standard synchronous reset (`always @(posedge clk)`).
+**The Reasoning:** This ensures 100% of the multiply-accumulate logic gets natively packed tightly inside the DSP48 block, marginally improving maximum frequency (Fmax) and saving routing resources—an excellent talking point for FPGA judges checking your PL utilization reports.
+
+## 5. REQP-1962 Cascaded BRAM Placer Fix
+**The Problem:** During the Place & Route (Impl) phase, Vivado crashed with a nasty `[DRC REQP-1962]` error on the `dense1` memory block. Because `dense1` requires so many BRAM blocks to store early 188k weights, the address register (`weight_idx`) had enormous fanout. Vivado's physical optimizer illegally replicated the register (`weight_idx_reg_rep_...`), deliberately violating the DRC rule that cascaded BRAMs must perfectly share identical source address pins.
+**The Solution:** We injected a synthesis directive natively into the Verilog code to forbid register mirroring:
+```verilog
+(* keep = "true" *) reg [19:0] weight_idx;
+```
+**The Reasoning:** The `keep = "true"` attribute physically blocks the optimization engine from generating logic replicas of that specific register. This forced Vivado to route the single unified address bus smoothly across the cascaded BRAM blocks, completely resolving the Placer failure and seamlessly generating the Bitstream.
