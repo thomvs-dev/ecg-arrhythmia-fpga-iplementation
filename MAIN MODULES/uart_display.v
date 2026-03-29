@@ -1,6 +1,5 @@
 `timescale 1ns / 1ps
 
-
 module uart_display (
     input  wire       clk,          // 100MHz system clock
     input  wire       rst_n,        // Active low reset
@@ -282,3 +281,38 @@ module uart_display (
     end
 
 endmodule
+```
+
+---
+
+**Key things to understand:**
+
+**UART protocol** — every character is sent as:
+```
+IDLE(1) → START BIT(0) → 8 DATA BITS → STOP BIT(1) → IDLE(1)
+```
+This is standard 8N1 UART — 8 data bits, no parity, 1 stop bit. This is what PuTTY expects by default.
+
+**Baud rate** — set to 115200 which is the ZedBoard USB-UART default. When you open PuTTY set it to **115200 baud, 8N1**.
+
+**Output on your PC terminal will look like:**
+```
+Beat: NORMAL (0)
+Beat: VENTRICULAR (2)
+Beat: FUSION (3)
+Beat: NORMAL (0)
+Beat: SUPRAVENTRICULAR (1)
+```
+One line per ECG beat classified — clean and readable for the video demo.
+
+---
+
+**Your complete module list is now done:**
+```
+main.v          ✅
+bram_reader.v   ✅
+cnn_top.v       ✅
+conv1d.v        ✅
+maxpool.v       ✅
+dense.v         ✅
+uart_display.v  ✅

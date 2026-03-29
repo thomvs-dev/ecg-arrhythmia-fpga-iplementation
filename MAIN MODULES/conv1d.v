@@ -1,22 +1,17 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Module Name: conv1d
-// Description: 1D Convolution layer with ReLU activation
-//              Ports use flat packed vectors for Vivado synthesis compatibility
-//////////////////////////////////////////////////////////////////////////////////
 
 module conv1d #(
-    parameter INPUT_LEN   = 187,    // Length of input signal
-    parameter KERNEL_SIZE = 6,      // Size of conv kernel
-    parameter NUM_FILTERS = 64,     // Number of filters
+    parameter INPUT_LEN   = 186,    // Length of input signal
+    parameter KERNEL_SIZE = 5,      // Size of conv kernel
+    parameter NUM_FILTERS = 32,     // Number of filters
     parameter WEIGHT_FILE = "conv1_weights.mem" // Weight file
 )(
-    input  wire                           clk,
-    input  wire                           rst_n,
-    input  wire                           start,
-    input  wire [8*INPUT_LEN-1:0]         signal_in_flat,   // Flat packed input
-    output wire [16*NUM_FILTERS-1:0]      conv_out_flat,    // Flat packed output
-    output reg                            done
+    input  wire                        clk,
+    input  wire                        rst_n,
+    input  wire                        start,
+    input  wire signed [7:0]           signal_in [0:INPUT_LEN-1],
+    output reg  signed [15:0]          conv_out  [0:NUM_FILTERS-1],
+    output reg                         done
 );
 
     // ─── Parameters ───────────────────────────────────────────────────
@@ -25,15 +20,6 @@ module conv1d #(
 
     // Total weights = NUM_FILTERS × KERNEL_SIZE
     localparam TOTAL_WEIGHTS = NUM_FILTERS * KERNEL_SIZE;
-
-    // ─── Unpack flat input into internal array ────────────────────────
-    wire signed [7:0] signal_in [0:INPUT_LEN-1];
-    genvar gi;
-    generate
-        for (gi = 0; gi < INPUT_LEN; gi = gi + 1) begin : unpack_signal
-            assign signal_in[gi] = signal_in_flat[gi*8 +: 8];
-        end
-    endgenerate
 
     // ─── Weight BRAM ──────────────────────────────────────────────────
     // Stores Int8 weights loaded from .mem file
@@ -57,10 +43,10 @@ module conv1d #(
     reg [7:0]  pos_idx;         // Current position in signal (0 to OUTPUT_LEN-1)
     reg [2:0]  k_idx;           // Current kernel position (0 to KERNEL_SIZE-1)
 
-    // Accumulator - wide enough to hold sum of 6 × (8bit × 8bit) = 6 × 16bit
+    // Accumulator — wide enough to hold sum of 6 × (8bit × 8bit) = 6 × 16bit
     reg signed [23:0] accumulator;
 
-    // Partial MAC result - using DSP48 slice
+    // Partial MAC result — using DSP48 slice
     reg signed [15:0] mac_result;
 
     // ─── FSM States ───────────────────────────────────────────────────
@@ -74,13 +60,6 @@ module conv1d #(
     // ─── Intermediate result buffer ───────────────────────────────────
     // Stores one full set of filter outputs before maxpool
     reg signed [15:0] result_buf [0:NUM_FILTERS-1];
-
-    // ─── Pack result buffer into flat output ──────────────────────────
-    generate
-        for (gi = 0; gi < NUM_FILTERS; gi = gi + 1) begin : pack_conv_out
-            assign conv_out_flat[gi*16 +: 16] = result_buf[gi];
-        end
-    endgenerate
 
     // ─── DSP48 MAC Unit ───────────────────────────────────────────────
     // Vivado infers DSP48 slices from this multiply-accumulate pattern
@@ -123,7 +102,7 @@ module conv1d #(
                     accumulator <= accumulator + product;
 
                     if (k_idx == KERNEL_SIZE - 1) begin
-                        // Finished one kernel position - go to ReLU
+                        // Finished one kernel position — go to ReLU
                         k_idx <= 3'd0;
                         state <= C_RELU;
                     end
@@ -138,7 +117,7 @@ module conv1d #(
                 C_RELU: begin
                     mac_result = accumulator[23:8] + bias[filter_idx];
 
-                    // ReLU - zero clip negative values
+                    // ReLU — zero clip negative values
                     if (mac_result < 0)
                         result_buf[filter_idx] <= 16'd0;
                     else
@@ -153,7 +132,8 @@ module conv1d #(
                         filter_idx <= 8'd0;
 
                         if (pos_idx == OUTPUT_LEN - 1) begin
-                            // All positions done - output is continuously packed
+                            // All positions done — copy to output
+                            conv_out <= result_buf;
                             state    <= C_DONE;
                         end
                         else begin

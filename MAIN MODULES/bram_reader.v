@@ -10,7 +10,7 @@ module bram_reader (
 
     // ─── Parameters ───────────────────────────────────────────────────
     // 5 ECG samples × 187 values each = 935 total values in BRAM
-    parameter TOTAL_SAMPLES = 935;
+    parameter TOTAL_SAMPLES = 930;
     
     // Controls how fast samples are fed to CNN
     // 100MHz clock / 1000 = one sample every 10 microseconds
@@ -42,7 +42,7 @@ module bram_reader (
             reading      <= 1'b1;
         end
         else begin
-            // Default - sample_valid is only high for 1 clock cycle
+            // Default — sample_valid is only high for 1 clock cycle
             sample_valid <= 1'b0;
 
             if (reading) begin
@@ -72,3 +72,23 @@ module bram_reader (
     end
 
 endmodule
+```
+
+---
+
+**Key things to understand about this module:**
+
+- `$readmemh` automatically loads your `ecg_test_samples.mem` file into BRAM at synthesis time — no SD card or ARM processor needed for this
+- `SAMPLE_RATE_DIV = 1000` means one sample is sent every 10 microseconds — fast enough for the CNN but controlled
+- It loops through all 935 values (5 signals × 187 samples) once, then stops and holds `done` high
+- `sample_valid` is only ever high for **one clock cycle** per sample — this is important for `cnn_top.v` to correctly detect incoming samples
+
+---
+
+**One thing to place in your Colab notebook** — make sure when you generate `ecg_test_samples.mem` the values are in **2-digit hex format with no prefix**, exactly like:
+```
+7F
+3A
+FF
+80
+...
